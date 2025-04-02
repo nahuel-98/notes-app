@@ -112,4 +112,8 @@ export class NoteListComponent {
   closeModal() {
     this.selectedNote = null;
   }
+
+  deleteNote(index: number) {
+    this.notes.splice(index, 1);
+  }
 }
