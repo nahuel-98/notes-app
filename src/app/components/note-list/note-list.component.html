@@ -1,0 +1,44 @@
+<!-- <div class="p-6 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Lista de Notas</h2>
+  <div class="grid gap-4">
+    <div
+      *ngFor="let note of notes"
+      class="p-4 bg-white shadow-lg rounded-lg border-l-4"
+      [ngClass]="{
+        'border-blue-500': note.category === 'Tareas',
+        'border-green-500': note.category === 'Creatividad',
+        'border-yellow-500': note.category === 'Trabajo'
+      }"
+    >
+      <h3 class="text-lg font-semibold">{{ note.title }}</h3>
+      <p class="text-gray-600">{{ note.content }}</p>
+      <span class="text-sm font-medium text-gray-500"
+        >Categoría: {{ note.category }}</span
+      >
+    </div>
+  </div>
+</div> -->
+
+<div
+  *ngFor="let note of notes"
+  class="bg-white shadow-lg p-4 rounded-lg cursor-pointer border-l-4"
+  [ngClass]="{
+    'border-blue-500': note.cat === 'Tareas',
+    'border-green-500': note.cat === 'Creatividad',
+    'border-yellow-500': note.cat === 'Trabajo'
+  }"
+  (click)="openModal(note)"
+>
+  <h3 class="text-lg font-bold">{{ note.title }}</h3>
+  <p>{{ note.content }}</p>
+  <p class="text-sm text-gray-500">
+    <strong>Categoría:</strong> {{ note.cat }}
+  </p>
+</div>
+
+<!-- Modal -->
+<app-note-modal
+  *ngIf="selectedNote"
+  [note]="selectedNote"
+  (close)="closeModal()"
+></app-note-modal>

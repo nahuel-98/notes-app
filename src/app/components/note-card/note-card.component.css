@@ -1,0 +1,8 @@
+/* Ajuste de separación entre tarjetas */
+div {
+  transition: transform 0.2s ease-in-out;
+}
+
+div:hover {
+  transform: scale(1.05);
+}
